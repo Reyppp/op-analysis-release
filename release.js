@@ -1,0 +1,7 @@
+window.OP_RELEASE = {
+  version: "0.2.0-beta.1",
+  public: false,
+  installerUrl: "",
+  portableUrl: "",
+  sha256: ""
+};
