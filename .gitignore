@@ -1,0 +1,13 @@
+*.exe
+*.msi
+*.zip
+*.dll
+*.pdb
+*.map
+model.js
+*model*.json
+*backtest*.csv
+*training*.csv
+*.py
+dist/
+target/
