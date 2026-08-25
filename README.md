@@ -1,14 +1,14 @@
 # OP Analysis Release
 
-这是 OP Analysis 的公开展示与发行仓库模板，只允许包含网站静态文件和公开发行说明。
+这是 OP Analysis 的公开展示与发行仓库。仓库只包含静态网站、虚构交互演示、公开版本信息和发行说明。
 
-禁止提交桌面端源码、真实炉次或生产数据、模型文件、训练/回测数据、拟合脚本、源码映射和程序安装包。大型程序文件只上传到 GitHub Releases。
+不得提交桌面端源码、真实炉次或生产数据、模型文件、训练和回测数据、拟合脚本、源码映射或程序安装包。大型程序文件仅作为 GitHub Releases 资产分发。
 
-## 发布
+## 公开 Beta 发布
 
-1. 将本目录复制为独立公开仓库 `op-analysis-release`。
-2. 把 `index.html` 中 Open Graph 图片地址的 `USERNAME` 改为实际 GitHub 账号。
-3. 在仓库 Settings → Pages 中选择 GitHub Actions。
-4. 正式版签名和内部验收通过后，由私有工程中的 `scripts/publish-github-release.ps1` 创建 Release，并更新 `release.js`、`release.json` 和下载链接。
+1. 在私有工程中更新使用许可、版本说明和桌面端程序包。
+2. 运行 `npm run check`，并通过桌面端迁移回归和发行包扫描。
+3. 运行 `scripts/publish-github-release.ps1 -Repository Reyppp/op-analysis-release -PublishPublic`。
+4. 脚本更新 Release 资产及 `release.js`、`release.json`。GitHub Pages 自动重新部署。
 
-`0.2.0-beta.1` 是内部测试版，公开下载按钮保持关闭。
+公开 Beta 允许在网页上启用下载链接，但必须清晰说明未签名状态，并提供 SHA-256 校验值。

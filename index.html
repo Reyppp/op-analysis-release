@@ -6,105 +6,93 @@
   <meta name="description" content="OP Analysis 是面向 Windows 的离线测试数据与产出分析工具。">
   <meta property="og:title" content="OP Analysis">
   <meta property="og:description" content="离线测试数据与产出分析">
-  <meta property="og:image" content="https://reyppp.github.io/op-analysis-release/assets/og.png">
+  <meta property="og:image" content="https://reyp.us/assets/og.png">
   <meta name="twitter:card" content="summary_large_image">
-  <title>OP Analysis｜离线测试数据与产出分析</title>
+  <title>OP Analysis | 离线测试数据与产出分析</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- THESIS: 让工程人员在一个安静、可信的页面内理解 OP Analysis 的离线分析能力，拒绝通用 SaaS 装饰。 OWN-WORLD: 冷灰背景、深炭文字和单一钴蓝强调，12px 圆角与精细分隔线。 STORY: 访客看见真实功能的虚构演示，理解数据留在本机，并下载可核验的测试版。 FIRST VIEWPORT: 左侧两行价值主张和下载动作，右侧为可切换的演示工作台。 FORM: 已确认成品参考图的非对称工程发布页。 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance. -->
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="OP Analysis 首页"><span>OP</span> Analysis</a>
-    <nav aria-label="主导航">
-      <a href="#demo">功能演示</a><a href="#privacy">离线隐私</a><a href="#install">安装指南</a><a href="#release">版本记录</a>
-    </nav>
+    <a class="brand" href="#top" aria-label="OP Analysis 首页"><span class="brand-mark" aria-hidden="true"></span>OP Analysis</a>
+    <nav aria-label="主导航"><a href="#workflow">功能流程</a><a href="#capabilities">产品能力</a><a href="#privacy">离线与隐私</a><a href="#install">下载安装</a></nav>
+    <a class="nav-download" href="#install">下载测试版</a>
   </header>
 
   <main id="top">
-    <section class="hero">
+    <section class="hero shell">
       <div class="hero-copy">
-        <p class="eyebrow">Windows 10 / 11 · x64 · 完全离线</p>
-        <h1>把测试数据变成<br><em>清晰的产出判断</em></h1>
-        <p class="lead">导入本地炉次数据，集中查看指标、光谱、Delta CW、产出预测与分析报告。文件和分析过程始终留在当前电脑。</p>
-        <div class="downloads">
-          <a id="installerDownload" class="button primary disabled" aria-disabled="true">正式版签名后开放下载</a>
-          <a id="portableDownload" class="button secondary disabled" aria-disabled="true">便携版</a>
+        <h1>从测试数据<br>到产出判断</h1>
+        <p>导入炉次文件，在本机完成规格判断、光谱分析、Delta CW、产出预测与报告输出。</p>
+        <div class="hero-actions">
+          <a id="installerDownload" class="button button-primary" href="#install">下载测试版</a>
+          <a class="button button-secondary" href="#capabilities">查看功能</a>
         </div>
-        <p id="releaseHint" class="release-hint">0.2.0-beta.1 仅供内部测试，不在公开网站分发。</p>
       </div>
-      <div class="hero-panel" aria-label="产品能力摘要">
-        <div class="panel-head"><i></i><i></i><i></i><span>OP Analysis</span></div>
-        <div class="mini-grid">
-          <article><span>测试指标</span><strong>9 项</strong><small>规格判断一屏完成</small></article>
-          <article class="accent"><span>测试合格数</span><strong>24,860</strong><small>区间 20,140～28,920</small></article>
-          <article><span>数据处理</span><strong>本机</strong><small>无需登录和网络</small></article>
-        </div>
-        <div class="signal"><div class="signal-line"></div><div class="signal-line second"></div></div>
-      </div>
-    </section>
 
-    <section id="demo" class="section demo-section">
-      <div class="section-heading">
-        <div><p class="eyebrow">INTERACTIVE PREVIEW</p><h2>三步完成一炉分析</h2></div>
-        <p>以下内容为固定虚构数据，仅用于展示操作方式，不运行真实解析器或预测算法。</p>
-      </div>
-      <div class="demo-shell">
-        <div class="demo-toolbar"><strong>OP Analysis</strong><span class="fake-action">导入炉次文件夹</span><span class="fake-action">当前规格：演示规格</span><span class="local-chip">离线</span></div>
-        <div class="demo-tabs" role="tablist">
-          <button class="active" data-demo-tab="data" role="tab">测试数据</button>
-          <button data-demo-tab="overview" role="tab">炉次概览</button>
-          <button data-demo-tab="report" role="tab">分析报告</button>
-        </div>
-        <div class="demo-note">演示数据，不代表实际预测结果</div>
+      <section class="demo-shell hero-demo" aria-label="OP Analysis 虚构操作演示">
+        <div class="demo-window"><span></span><span></span><span></span><small>OP Analysis · 工程分析工作台</small></div>
+        <div class="demo-appbar"><b>OP Analysis</b><div class="demo-tabs" role="tablist" aria-label="演示标签"><button id="demo-tab-data" class="active" data-demo-tab="data" role="tab" aria-selected="true" aria-controls="demo-panel-data">测试数据</button><button id="demo-tab-overview" data-demo-tab="overview" role="tab" aria-selected="false" aria-controls="demo-panel-overview">炉次概览</button><button id="demo-tab-report" data-demo-tab="report" role="tab" aria-selected="false" aria-controls="demo-panel-report">分析报告</button></div></div>
+        <div class="demo-toolbar"><b class="import-chip">导入炉次文件夹</b><span>选择文件</span><span>当前规格：演示规格</span></div>
+        <p class="demo-disclaimer">虚构演示数据，不代表实际预测结果或生产结论</p>
 
-        <section class="demo-panel active" data-demo-panel="data">
+        <section id="demo-panel-data" class="demo-panel active" data-demo-panel="data" role="tabpanel" aria-labelledby="demo-tab-data">
           <div class="data-layout">
-            <aside class="file-list"><b>点位文件</b><button class="selected">1-2 EXP</button><button>1-5 EXP</button><button>1-8 EXP</button><button>全部数据</button></aside>
-            <div class="metric-table"><b>测试指标</b><table><thead><tr><th>指标</th><th>结果</th><th>规格</th></tr></thead><tbody id="demoMetrics"></tbody></table></div>
-            <div class="wave-card"><b>光谱波形</b><canvas id="waveCanvas" width="560" height="250" aria-label="虚构光谱波形"></canvas></div>
+            <aside class="file-list"><b>点位文件　EXP</b><button class="selected" data-demo-file="01-02 EXP">01-02 EXP</button><button data-demo-file="01-05 EXP">01-05 EXP</button><button data-demo-file="01-08 EXP">01-08 EXP</button><button data-demo-file="全部数据">全部数据</button></aside>
+            <div class="metric-table"><div class="panel-title"><b>测试指标</b><span id="activeDemoFile">01-02 EXP · 9 / 9 合格</span></div><table><thead><tr><th>指标</th><th>结果</th><th>规格</th></tr></thead><tbody id="demoMetrics"></tbody></table></div>
+            <div class="wave-card"><div class="panel-title"><b>光谱波形</b><span>1258-1270 nm</span></div><canvas id="waveCanvas" aria-label="虚构光谱波形"></canvas></div>
           </div>
-          <div class="delta-card"><div><b>Delta CW</b><span>波长面积合格率 88.4%</span></div><canvas id="deltaCanvas" width="1100" height="250" aria-label="虚构Delta CW曲线"></canvas></div>
+          <div class="delta-card"><div class="panel-title"><b>Delta CW</b><span>波长面积合格率 88.4%</span></div><canvas id="deltaCanvas" aria-label="虚构 Delta CW 曲线"></canvas></div>
         </section>
 
-        <section class="demo-panel" data-demo-panel="overview">
-          <div class="overview-inputs"><span>炉号<strong>DEMO-ALPHA</strong></span><span>规格<strong>演示规格 A</strong></span><span>薄片数量<strong>19（自动识别）</strong></span><span>外观<strong>30-15，占比 94%</strong></span></div>
-          <div class="result-cards"><article><span>预估划切颗粒数</span><strong>41,280</strong><small>区间 36,900～45,660</small></article><article class="main-result"><span>预估测试合格数</span><strong>24,860</strong><small>区间 20,140～28,920</small></article><article><span>预估出库数</span><strong>20,730</strong><small>区间 16,800～24,660</small></article></div>
+        <section id="demo-panel-overview" class="demo-panel" data-demo-panel="overview" role="tabpanel" aria-labelledby="demo-tab-overview" hidden>
+          <div class="overview-inputs"><span>炉号<strong>SAMPLE-A</strong></span><span>规格<strong>演示规格</strong></span><span>薄片数量<strong>19（自动识别）</strong></span><span>外观<strong>30-15，占比 94%</strong></span></div>
+          <div class="result-cards"><article><span>预估划切颗粒数</span><strong>41,280</strong><small>区间 36,900-45,660</small></article><article class="main-result"><span>预估测试合格数</span><strong>24,860</strong><small>区间 20,140-28,920</small></article><article><span>预估出库数</span><strong>20,730</strong><small>区间 16,800-24,660</small></article></div>
           <div class="rate-row"><span>外观可用率<b>94.0%</b></span><span>波长合格率<b>88.4%</b></span><span>指标合格率<b>100%</b></span></div>
-          <details><summary>计算详情</summary><p>软件在本机综合外观、测试指标和区域数据，给出三阶段预测、区间及风险提示。演示页面不包含真实计算规则。</p></details>
+          <details><summary>计算详情</summary><p>演示页仅展示信息组织方式，不包含真实计算规则或模型数据。</p></details>
         </section>
 
-        <section class="demo-panel" data-demo-panel="report">
-          <div class="report-actions"><b>分析报告预览</b><button id="copyDemoReport">复制报告</button></div>
-          <div class="report-sheet"><div><span>日期 / 产品</span><strong>2026-08-24<br>演示产品</strong></div><div><span>炉号 / 规格</span><strong>DEMO-ALPHA<br>演示规格 A</strong></div><div class="report-analysis"><span>分析结果</span><p>①外观：30-15，占比94%<br>②均匀性：合格率88.4%<br>③指标：内圈、监控点、外圈数据已汇总</p></div><div><span>预估产出</span><strong class="red">20,730<br>(19 pcs)</strong></div></div>
+        <section id="demo-panel-report" class="demo-panel" data-demo-panel="report" role="tabpanel" aria-labelledby="demo-tab-report" hidden>
+          <div class="report-actions"><b>分析报告预览</b><button id="copyDemoReport" type="button">复制报告</button></div>
+          <div class="report-sheet"><div><span>日期 / 产品</span><strong>2026-08-24<br>演示产品</strong></div><div><span>炉号 / 规格</span><strong>SAMPLE-A<br>演示规格</strong></div><div class="report-analysis"><span>分析结果</span><p>①外观：30-15，占比 94%<br>②均匀性：合格率 88.4%<br>③指标：内圈、监控点、外圈数据已汇总</p></div><div><span>预估产出</span><strong>20,730<br>（19 pcs）</strong></div></div>
           <p id="copyStatus" class="copy-status" aria-live="polite"></p>
         </section>
+      </section>
+    </section>
+
+    <section id="workflow" class="workflow shell">
+      <div class="section-intro"><h2>一炉分析，四个步骤</h2><p>把分散的测试文件、规格判断和产出推测集中到一个清晰工作流中，减少重复整理与人工换算。</p></div>
+      <div class="workflow-grid">
+        <article><span>导入</span><h3>读取炉次数据</h3><p>导入炉次文件夹或单独文件，自动整理点位并识别薄片数量。</p></article>
+        <article><span>核对</span><h3>查看测试指标</h3><p>集中查看带宽、Ripple、光谱与 Delta CW，不合格项直接标记。</p></article>
+        <article><span>判断</span><h3>评估产出参考</h3><p>结合外观、EXP 分区和加工风险，输出三阶段预测与区间。</p></article>
+        <article><span>输出</span><h3>生成分析报告</h3><p>自动整理外观、均匀性、指标和预估产出，便于复制与归档。</p></article>
       </div>
     </section>
 
-    <section class="section feature-grid">
-      <article><span>01</span><h3>本地导入</h3><p>支持炉次文件夹或单独文件，自动整理点位并识别薄片数量。</p></article>
-      <article><span>02</span><h3>一屏判断</h3><p>指标表、光谱波形和 Delta CW 集中展示，不合格项直接标记。</p></article>
-      <article><span>03</span><h3>产出参考</h3><p>依次展示预估划切、测试合格和出库数量，并提供预测区间。</p></article>
-      <article><span>04</span><h3>报告输出</h3><p>生成结构化分析报告，支持复制到常用办公软件。</p></article>
+    <section id="capabilities" class="capabilities">
+      <div class="shell"><div class="section-intro"><h2>专业分析能力</h2><p>重要异常先出现，详细依据可继续追溯。公开页面只使用虚构数据展示操作界面。</p></div>
+        <div class="capability-grid">
+          <article class="capability capability-data"><div><h3>测试数据集中判断</h3><p>完整显示九行指标、光谱波形与 Delta CW，EXP 和全部点位可快速切换。</p></div><div class="mini-dashboard"><div><small>内圈 · 上带宽</small><b>4.867</b></div><div><small>监控点 · Ripple</small><b>0.097</b></div><div><small>外圈 · Delta CW</small><b>-0.52</b></div><canvas id="capabilityCanvas" aria-label="虚构指标曲线"></canvas></div></article>
+          <article class="capability capability-yield"><h3>产出与风险量化</h3><p>突出测试合格数，并保留划切、出库区间与计算依据。</p><div><small>预估测试合格数</small><b>21,360</b><i></i><i></i></div></article>
+          <article class="capability capability-report"><h3>一键形成报告</h3><p>统一外观、均匀性、指标和产出结果，复制后即可进入既有工作流。</p><strong aria-hidden="true">✓</strong></article>
+        </div>
+      </div>
     </section>
 
-    <section id="privacy" class="section split-section">
-      <div><p class="eyebrow">OFFLINE BY DESIGN</p><h2>生产数据不离开电脑</h2><p>OP Analysis 不需要账号，不连接分析服务器，不发送遥测，也不进行后台自动更新。导入的测试文件、规格和报告只在当前 Windows 用户环境中处理与保存。</p></div>
-      <ul><li><b>无云端上传</b><span>文件内容不会发送到网站或第三方服务。</span></li><li><b>无网络依赖</b><span>安装后可在断网环境完成核心分析。</span></li><li><b>手动更新</b><span>新版本由用户从本网站下载并核对哈希。</span></li></ul>
+    <section id="privacy" class="privacy">
+      <div class="shell privacy-grid"><div><h2>数据始终留在本机</h2><p>OP Analysis 不依赖云端服务，不上传炉次文件、规格数据或分析结果。核心计算由桌面应用在本机完成，适合内部生产环境使用。</p></div><div class="privacy-list"><span>文件解析与指标计算 <b>本机完成</b></span><span>生产数据上传 <b>不上传</b></span><span>网络与账号依赖 <b>无</b></span><span>安装环境 <b>Windows 10 / 11 x64</b></span></div></div>
     </section>
 
-    <section id="install" class="section install-section">
-      <div class="section-heading"><div><p class="eyebrow">INSTALLATION</p><h2>安装与校验</h2></div><p>正式版将提供 OV 证书签名和 SHA-256 校验值。</p></div>
-      <ol><li><b>下载安装版</b><span>推荐 Windows 10/11 x64 用户使用安装版。</span></li><li><b>检查发布者</b><span>确认数字签名有效，且发布者名称与网站一致。</span></li><li><b>核对哈希</b><span id="shaValue">正式版发布时公布</span></li><li><b>完成安装</b><span>首次安装包含离线运行组件，文件较大属于正常情况。</span></li></ol>
+    <section id="install" class="install shell">
+      <div class="download-box"><div><h2>0.2.0 Beta</h2><p id="releaseHint">适用于功能评估。当前版本未进行代码签名，安装时可能出现 Windows 安全提示。</p><div class="release-meta"><span>安装版 · 推荐</span><span>便携版 · ZIP</span><span>提供 SHA-256 校验</span></div></div><div class="download-actions"><a id="installerDownloadSecondary" class="button button-primary" href="#install">下载 Windows 测试版</a><a id="portableDownload" class="portable-link" href="#install">下载便携版</a></div></div>
+      <div class="install-notes"><article><h3>下载安装版</h3><p>推荐 Windows 10 / 11 x64 用户使用。安装包包含离线运行组件，文件较大属于正常情况。</p></article><article><h3>核对文件</h3><p>下载后可使用 SHA-256 核对安装包完整性。<code id="shaValue">发布时提供</code></p></article><article><h3>了解测试版</h3><p>预测结果仅供工程分析参考。关键决策仍需结合实际测试和人工复核。</p></article></div>
     </section>
 
-    <section id="release" class="section release-section">
-      <div><p class="eyebrow">RELEASES</p><h2>版本记录</h2></div>
-      <article><time>内部测试</time><div><h3>0.2.0-beta.1</h3><p>预测核心迁移至本地编译模块，公开前端不再包含模型文件；增加迁移回归与发行包检查。</p></div><span>不公开</span></article>
-      <article class="muted"><time>计划发布</time><div><h3>1.0.0</h3><p>完成内部验收、许可文本确认及 OV 代码签名后公开。</p></div><span>待发布</span></article>
-    </section>
+    <section class="release shell"><div class="section-intro"><h2>版本记录</h2><p>每次更新均以手动下载的方式提供，不采集使用数据，也不进行自动更新。</p></div><article><time>公开 Beta</time><div><h3 id="releaseVersion">0.2.0-beta.1</h3><p>离线桌面分析、虚构网页演示、安装包与便携版发行。</p></div><span id="releaseState">准备中</span></article></section>
   </main>
 
-  <footer><strong>OP Analysis</strong><span>© <span id="year"></span> · 离线测试数据与产出分析</span><span>预测结果仅供分析参考，关键决策请结合实际测试。</span></footer>
+  <footer class="shell"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>OP Analysis</a><span>© <span id="year"></span> OP Analysis</span><span>离线测试数据与产出分析</span></footer>
   <script src="release.js"></script>
   <script src="demo.js"></script>
 </body>
