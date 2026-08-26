@@ -1,14 +1,68 @@
-# OP Analysis Release
+# OP Analysis
 
-这是 OP Analysis 的公开展示与发行仓库。仓库只包含静态网站、虚构交互演示、公开版本信息和发行说明。
+OP Analysis 是面向 Windows 的离线光学测试与产出分析工具，用于本机解析 Par 和光谱数据、核对规格、分析 EXP 分区，并生成三阶段产出预测与分析报告。
 
-不得提交桌面端源码、真实炉次或生产数据、模型文件、训练和回测数据、拟合脚本、源码映射或程序安装包。大型程序文件仅作为 GitHub Releases 资产分发。
+[访问官网](https://reyp.us) · [下载最新测试版](https://github.com/Reyppp/op-analysis-release/releases) · [提交问题](https://github.com/Reyppp/op-analysis-release/issues/new/choose)
 
-## 公开 Beta 发布
+> 本仓库只包含官方网站、虚构交互演示和公开发行资料，不包含桌面端源码、模型参数、训练或回测数据、真实炉次及生产文件。
 
-1. 在私有工程中更新使用许可、版本说明和桌面端程序包。
-2. 运行 `npm run check`，并通过桌面端迁移回归和发行包扫描。
-3. 运行 `scripts/publish-github-release.ps1 -Repository Reyppp/op-analysis-release -PublishPublic`。
-4. 脚本更新 Release 资产及 `release.js`、`release.json`。GitHub Pages 自动重新部署。
+## 核心功能
 
-公开 Beta 允许在网页上启用下载链接，但必须清晰说明未签名状态，并提供 SHA-256 校验值。
+- 导入炉次文件夹或测试文件，集中查看测试指标与规格判断。
+- 展示光谱波形、Delta CW、EXP 点位及内圈、监控点、外圈分区结果。
+- 结合薄片数量、外观、规格和测试指标，输出预估划切颗粒数、预估测试合格数、预估出库数及预测区间。
+- 生成可复制的分析报告，便于工程复核和结果沟通。
+- 文件与预测均在本机完成，无账号、无遥测、无云端分析。
+
+预测结果仅供工程分析参考，最终结果应以实际颗粒测试、正式规格和人工复核为准。
+
+## 系统要求
+
+- Windows 10 / 11 x64
+- 建议分辨率 1366×768 或更高
+- 软件可离线运行，不要求预装 WebView2
+
+## 安装版与便携版
+
+| 版本 | 适用场景 | 使用方式 |
+| --- | --- | --- |
+| 安装版 | 日常使用，推荐 | 运行 `OP-Analysis_<版本>_x64-setup.exe`，按向导完成当前用户安装 |
+| 便携版 | 无安装权限或临时测试 | 解压完整 ZIP 后运行 `OP Analysis.exe`，不要只从压缩包内直接启动 |
+
+公开 Beta 尚未进行代码签名，Windows 可能显示“未知发布者”或 SmartScreen 提示。请只从 [官网](https://reyp.us) 或本仓库的 [GitHub Releases](https://github.com/Reyppp/op-analysis-release/releases) 下载，并在运行前核对 SHA-256。
+
+## 快速开始
+
+1. 启动 OP Analysis，选择炉次文件夹或测试文件。
+2. 在“测试数据”核对规格、测试指标、光谱波形和 Delta CW。
+3. 在“炉次概览”确认薄片数量与外观描述，查看三阶段预测和风险提示。
+4. 在“分析报告”生成或复制报告。
+
+官网的交互界面使用虚构数据，仅用于展示操作方式，不执行真实解析或预测。
+
+## 校验下载文件
+
+每个 Release 都包含 `SHA256SUMS.txt`。在 PowerShell 中运行：
+
+```powershell
+Get-FileHash -Algorithm SHA256 .\OP-Analysis_<版本>_x64-setup.exe
+```
+
+输出值应与同一 Release 中 `SHA256SUMS.txt` 的对应记录完全一致。
+
+## 文档与支持
+
+- [使用许可](EULA_zh-CN.md)
+- [隐私说明](PRIVACY.md)
+- [支持说明](SUPPORT.md)
+- [安全政策](SECURITY.md)
+- [版本记录](CHANGELOG.md)
+- [第三方组件声明](THIRD_PARTY_NOTICES.txt)
+
+一般问题请使用 [GitHub Issues](https://github.com/Reyppp/op-analysis-release/issues/new/choose)，且只能提交脱敏信息。安全问题请使用 [私密漏洞报告](https://github.com/Reyppp/op-analysis-release/security/advisories/new)。
+
+## 许可
+
+Copyright © 2026 Reyppp. All Rights Reserved.
+
+OP Analysis、网站内容及发行资料采用专有许可。公开可见不等于开源；除 GitHub 服务条款明确允许的查看与 Fork 外，本仓库不授予复制、修改、商业使用、品牌使用或再分发权利。详见 [LICENSE](LICENSE) 与 [EULA_zh-CN.md](EULA_zh-CN.md)。

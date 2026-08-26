@@ -231,7 +231,7 @@
 
   const release = window.OP_RELEASE || {};
   document.getElementById("year").textContent = new Date().getFullYear();
-  document.getElementById("releaseVersion").textContent = release.version || "0.2.0-beta.1";
+  document.getElementById("releaseVersion").textContent = release.version || "0.2.0-beta.2";
   if (release.public) {
     ["installerDownload", "installerDownloadSecondary"].forEach(id => {
       const link = document.getElementById(id);
