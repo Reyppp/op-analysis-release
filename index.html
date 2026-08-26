@@ -15,7 +15,7 @@
   <!-- THESIS: 让工程人员在一个安静、可信的页面内理解 OP Analysis 的离线分析能力，拒绝通用 SaaS 装饰。 OWN-WORLD: 冷灰背景、深炭文字和单一钴蓝强调，12px 圆角与精细分隔线。 STORY: 访客看见真实功能的虚构演示，理解数据留在本机，并下载可核验的测试版。 FIRST VIEWPORT: 左侧两行价值主张和下载动作，右侧为可切换的演示工作台。 FORM: 已确认成品参考图的非对称工程发布页。 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance. -->
   <header class="site-header">
     <a class="brand" href="#top" aria-label="OP Analysis 首页"><span class="brand-mark" aria-hidden="true"></span>OP Analysis</a>
-    <nav aria-label="主导航"><a href="#workflow">功能流程</a><a href="#capabilities">产品能力</a><a href="#privacy">离线与隐私</a><a href="#install">下载安装</a></nav>
+    <nav aria-label="主导航"><a href="#workflow">功能流程</a><a href="#guide">使用说明</a><a href="#capabilities">产品能力</a><a href="#privacy">离线与隐私</a><a href="#install">下载安装</a></nav>
     <a class="nav-download" href="#install">下载测试版</a>
   </header>
 
@@ -67,6 +67,70 @@
         <article><span>核对</span><h3>查看测试指标</h3><p>集中查看带宽、Ripple、光谱与 Delta CW，不合格项直接标记。</p></article>
         <article><span>判断</span><h3>评估产出参考</h3><p>结合外观、EXP 分区和加工风险，输出三阶段预测与区间。</p></article>
         <article><span>输出</span><h3>生成分析报告</h3><p>自动整理外观、均匀性、指标和预估产出，便于复制与归档。</p></article>
+      </div>
+    </section>
+
+    <section id="guide" class="client-guide">
+      <div class="shell">
+        <div class="guide-heading">
+          <div><h2>客户端使用说明</h2><p>点击左侧复刻界面的按钮或数据区域，右侧会说明它的作用、使用时机、操作方法和注意事项。</p></div>
+          <form class="guide-search" id="guideSearch" role="search"><label><span class="sr-only">搜索功能</span><input id="guideSearchInput" type="search" placeholder="搜索：导入、Delta CW、报告"></label><button type="submit">搜索</button></form>
+        </div>
+
+        <div class="guide-workbench">
+          <div class="guide-client" aria-label="OP Analysis 虚构客户端操作演示">
+            <div class="guide-windowbar"><span class="brand-mark" aria-hidden="true"></span><strong>OP Analysis</strong><small>虚构演示界面，不处理真实文件</small></div>
+            <div class="guide-toolbar" aria-label="导入与规格操作">
+              <button class="guide-primary" type="button" data-guide-feature="import-folder">导入炉次文件夹</button>
+              <button type="button" data-guide-feature="choose-files">选择文件</button>
+              <button type="button" data-guide-feature="current-spec">当前规格：演示规格</button>
+              <button type="button" data-guide-feature="spec-manager">规格管理</button>
+              <button type="button" data-guide-feature="clear">清空</button>
+            </div>
+            <div class="guide-tabs" role="tablist" aria-label="客户端页面">
+              <button class="active" id="guide-tab-data" type="button" role="tab" aria-selected="true" aria-controls="guide-screen-data" data-guide-screen="data" data-guide-feature="tab-data">测试数据</button>
+              <button id="guide-tab-overview" type="button" role="tab" aria-selected="false" aria-controls="guide-screen-overview" data-guide-screen="overview" data-guide-feature="tab-overview">炉次概览</button>
+              <button id="guide-tab-report" type="button" role="tab" aria-selected="false" aria-controls="guide-screen-report" data-guide-screen="report" data-guide-feature="tab-report">分析报告</button>
+            </div>
+
+            <section class="guide-screen active" id="guide-screen-data" role="tabpanel" aria-labelledby="guide-tab-data" data-guide-panel="data">
+              <div class="guide-data-grid">
+                <aside class="guide-file-panel">
+                  <div><strong>点位文件</strong><span><button class="active" type="button" data-guide-feature="exp-filter">EXP</button><button type="button" data-guide-feature="all-filter">全部</button></span></div>
+                  <button class="selected" type="button" data-guide-feature="point-file">01-02 EXP</button><button type="button" data-guide-feature="point-file">01-05 EXP</button><button type="button" data-guide-feature="point-file">01-08 EXP</button>
+                </aside>
+                <div class="guide-metric-panel" tabindex="0" role="button" data-guide-feature="metrics-table">
+                  <div class="guide-panel-title"><strong>测试指标</strong><span>9 / 9 合格</span></div>
+                  <table><thead><tr><th>指标</th><th>结果</th><th>规格</th></tr></thead><tbody><tr><td>Delta CW</td><td>-0.48</td><td>-1.50~0.20</td></tr><tr><td>BW@0.3dB</td><td>4.82</td><td>≥4.60</td></tr><tr><td>Ripple</td><td>0.11</td><td>≤0.14</td></tr><tr><td>Max IL</td><td>0.52</td><td>≤0.80</td></tr><tr><td>ISO Left</td><td>31.2</td><td>≥28.0</td></tr><tr><td>ISO Right</td><td>30.8</td><td>≥28.0</td></tr><tr><td>Center WL</td><td>演示</td><td>演示</td></tr><tr><td>Passband</td><td>通过</td><td>目标</td></tr><tr><td>Point Result</td><td>PASS</td><td>PASS</td></tr></tbody></table>
+                </div>
+                <figure class="guide-chart-card" tabindex="0" role="button" data-guide-feature="spectrum"><figcaption><strong>光谱波形</strong><span>1258-1270 nm</span></figcaption><canvas id="guideWaveCanvas" aria-label="虚构光谱波形"></canvas></figure>
+              </div>
+              <figure class="guide-delta-card" tabindex="0" role="button" data-guide-feature="delta-cw"><figcaption><strong>Delta CW</strong><span>波长面积合格率 88.4%</span></figcaption><canvas id="guideDeltaCanvas" aria-label="虚构 Delta CW 曲线"></canvas></figure>
+            </section>
+
+            <section class="guide-screen" id="guide-screen-overview" role="tabpanel" aria-labelledby="guide-tab-overview" data-guide-panel="overview" hidden>
+              <div class="guide-overview-fields"><button type="button" data-guide-feature="lot-id"><span>炉号</span><strong>DEMO-001</strong></button><button type="button" data-guide-feature="current-spec"><span>产品系列 / 规格</span><strong>演示规格</strong></button><button type="button" data-guide-feature="slice-count"><span>薄片数量</span><strong>19（自动识别）</strong></button><button type="button" data-guide-feature="appearance"><span>外观描述</span><strong>30-15，占比94%</strong></button></div>
+              <div class="guide-risk-row"><button class="guide-risk-badge" type="button" data-guide-feature="high-risk"><span aria-hidden="true"></span>高风险<small>查看解释</small></button></div>
+              <div class="guide-yield-cards"><button type="button" data-guide-feature="cut-result"><span>预估划切颗粒数</span><strong>41,280</strong><small>36,900~45,660</small></button><button class="main" type="button" data-guide-feature="test-result"><span>预估测试合格数</span><strong>24,860</strong><small>20,140~28,920</small></button><button type="button" data-guide-feature="ship-result"><span>预估出库数</span><strong>20,730</strong><small>16,800~24,660</small></button></div>
+              <div class="guide-rate-row"><span>外观可用率<b>94.0%</b></span><span>波长合格率<b>88.4%</b></span><span>指标合格率<b>100%</b></span></div>
+              <div class="guide-overview-actions"><button type="button" data-guide-feature="output-report">输出分析报告</button><button type="button" data-guide-feature="restore-default">恢复默认</button><button type="button" data-guide-feature="calculation-detail">计算详情</button><button type="button" data-guide-feature="algorithm-model">算法模型</button></div>
+            </section>
+
+            <section class="guide-screen" id="guide-screen-report" role="tabpanel" aria-labelledby="guide-tab-report" data-guide-panel="report" hidden>
+              <div class="guide-report-actions"><strong>分析报告</strong><span><button type="button" data-guide-feature="refresh-report">生成 / 刷新报告</button><button class="guide-primary" type="button" data-guide-feature="copy-report">复制报告</button></span></div>
+              <div class="guide-report-table" tabindex="0" role="button" data-guide-feature="report-table"><div><span>日期 / 产品</span><strong>2026-08-26<br>演示产品</strong></div><div><span>炉号 / 规格</span><strong>DEMO-001<br>演示规格</strong></div><div class="wide"><span>分析结果</span><p>①外观：30-15，占比94%<br>②均匀性：合格率88.4%<br>③指标：内圈、监控点、外圈数据已汇总</p></div><div><span>预估产出</span><strong>20,730<br>19 pcs</strong></div></div>
+            </section>
+          </div>
+
+          <aside class="guide-detail" id="guideDetail" tabindex="-1" aria-live="polite">
+            <div class="guide-detail-head"><span id="guideDetailKicker">开始使用</span><b>操作说明</b></div>
+            <h3 id="guideDetailTitle">选择任意控件</h3>
+            <p id="guideDetailCopy">点击左侧完整界面中的按钮、表格或曲线，即可查看对应说明。</p>
+            <dl id="guideDetailList"><div><dt>作用</dt><dd>认识当前控件负责的任务。</dd></div><div><dt>什么时候用</dt><dd>根据分析流程判断操作时机。</dd></div><div><dt>操作方法</dt><dd>获得清晰、简短的操作步骤。</dd></div><div><dt>注意事项</dt><dd>避免误操作或错误理解结果。</dd></div></dl>
+          </aside>
+        </div>
+
+        <div class="guide-quickstart" aria-label="首次分析流程"><strong>首次分析流程</strong><button type="button" data-guide-jump="import-folder">1 导入文件</button><button type="button" data-guide-jump="current-spec">2 核对规格</button><button type="button" data-guide-jump="appearance">3 填写外观</button><button type="button" data-guide-jump="test-result">4 查看产出</button><button type="button" data-guide-jump="copy-report">5 复制报告</button></div>
       </div>
     </section>
 
