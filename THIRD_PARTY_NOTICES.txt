@@ -1,0 +1,36 @@
+OP Analysis 第三方组件声明
+版本：0.2.0-beta.2
+更新日期：2026-08-26
+
+OP Analysis 的专有代码和模型由 Reyppp 保留全部权利。软件同时使用下列第三方组件；这些组件继续受其各自许可条款约束。
+
+1. Tauri 2
+   Copyright Tauri Programme within The Commons Conservancy
+   License: Apache License 2.0 or MIT License
+   https://github.com/tauri-apps/tauri
+
+2. Rust standard library and Rust toolchain runtime components
+   Copyright The Rust Project Developers
+   License: Apache License 2.0 or MIT License
+   https://www.rust-lang.org/policies/licenses
+
+3. serde / serde_json
+   License: Apache License 2.0 or MIT License
+   https://github.com/serde-rs/serde
+
+4. regex
+   License: Apache License 2.0 or MIT License
+   https://github.com/rust-lang/regex
+
+5. csv
+   License: MIT License or The Unlicense
+   https://github.com/BurntSushi/rust-csv
+
+6. Microsoft Edge WebView2 Runtime and WebView2Loader
+   Copyright Microsoft Corporation
+   Distributed under the applicable Microsoft software license terms.
+   https://developer.microsoft.com/microsoft-edge/webview2/
+
+Tauri 和上述 Rust 组件还会带入 Cargo.lock 中列出的传递依赖。相应版权声明和许可标识可在各组件的官方发布包、源码仓库或 crates.io 页面查阅。本声明不修改或取代任何第三方许可。
+
+本声明不是对 OP Analysis 专有代码、模型、品牌或生产数据的开源授权。

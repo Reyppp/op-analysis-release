@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 私密报告安全问题
+    url: https://github.com/Reyppp/op-analysis-release/security/advisories/new
+    about: 不要在公开 Issue 中披露安全漏洞或敏感数据
+  - name: 使用说明
+    url: https://reyp.us/#guide
+    about: 查看客户端界面和基础操作说明
