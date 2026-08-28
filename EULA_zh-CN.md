@@ -1,6 +1,6 @@
 # OP Analysis 公开测试版使用许可
 
-版本：0.3.0-beta.2
+版本：0.3.0-beta.3
 
 发布者：Reyppp
 
