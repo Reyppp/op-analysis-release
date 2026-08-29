@@ -67,6 +67,9 @@ h1 { max-width: 440px; margin-bottom: 22px; font-size: clamp(42px, 4.4vw, 62px);
 .panel-title { display: flex; justify-content: space-between; align-items: center; color: #728094; font-size: 7px; }
 .panel-title b { color: #253243; font-size: 8px; }
 .metric-table .panel-title span { color: #16865e; }
+.wave-tools { display: flex; gap: 3px; }
+.wave-tools i { padding: 2px 4px; border: 1px solid #d7e0e9; border-radius: 3px; color: #65758a; font-size: 6px; font-style: normal; }
+.wave-tools i:first-child { border-color: #9db7ef; background: var(--blue-soft); color: var(--blue); }
 table { width: 100%; margin-top: 6px; border-collapse: collapse; table-layout: fixed; font-size: 7px; }
 th, td { padding: 3px 2px; overflow-wrap: anywhere; border-bottom: 1px solid #e8edf2; text-align: left; }
 th { color: #8793a2; font-weight: 500; }
@@ -87,11 +90,18 @@ details { margin-top: 12px; padding: 9px; border-top: 1px solid #dfe5ec; color: 
 details p { margin: 7px 0 0; }
 .report-actions { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; font-size: 10px; }
 .report-actions button { padding: 6px 9px; border: 1px solid #cad4df; border-radius: 5px; background: #fff; color: #334154; font-size: 9px; cursor: pointer; }
-.report-sheet { display: grid; grid-template-columns: 1fr 1fr 2.3fr 1fr; min-height: 221px; border: 1px solid #cfd8e2; background: #fff; color: #243143; }
+.report-sheet { display: grid; grid-template-columns: .75fr .9fr .75fr 2.5fr 1.9fr; min-height: 221px; border: 1px solid #cfd8e2; background: #fff; color: #243143; }
 .report-sheet > div { padding: 12px; border-right: 1px solid #d5dde6; font-size: 9px; }
 .report-sheet > div:last-child { border-right: 0; }
 .report-sheet span { display: block; margin-bottom: 9px; color: #738193; font-size: 8px; }
 .report-sheet p { line-height: 1.8; }
+.report-yield strong { color: #d92727; }
+.report-visuals { display: grid; grid-template-rows: 1.25fr .75fr; gap: 7px; padding: 10px !important; }
+.report-visuals > i, .report-visuals > span i { display: block; border: 1px solid #dce4ed; border-radius: 3px; background: linear-gradient(180deg,#f9fbfd,#edf3fb); }
+.report-visuals > i { position: relative; }
+.report-visuals > i:after, .report-visuals > span i:after { content: ""; position: absolute; inset: 45% 8% auto; height: 2px; background: var(--blue); transform: skewY(-4deg); }
+.report-visuals > span { display: grid; grid-template-columns: repeat(4,1fr); gap: 5px; margin: 0; }
+.report-visuals > span i { position: relative; }
 .copy-status { min-height: 16px; margin: 8px 0 0; color: #16865e; font-size: 9px; text-align: right; }
 
 .workflow { padding-block: 90px; }
@@ -141,9 +151,13 @@ details p { margin: 7px 0 0; }
 .guide-panel-title, .guide-chart-card figcaption, .guide-delta-card figcaption { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #758396; font-size: 9px; }
 .guide-panel-title strong, .guide-chart-card strong, .guide-delta-card strong { color: #273446; font-size: 10px; }
 .guide-panel-title span { color: #16865e; }
+.guide-wave-tools { display: flex; gap: 3px; }
+.guide-wave-tools button, .guide-chart-title { min-height: 24px; padding: 2px 5px; border: 1px solid #d7e0e9; border-radius: 4px; background: #fff; color: #65758a; font: inherit; font-size: 8px; cursor: pointer; }
+.guide-wave-tools button.active { border-color: #9db7ef; background: var(--blue-soft); color: var(--blue); font-weight: 700; }
 .guide-metric-panel table { font-size: 8px; }
 .guide-metric-panel th, .guide-metric-panel td { padding: 4px 2px; }
 .guide-chart-card, .guide-delta-card { padding: 10px; cursor: pointer; }
+.guide-chart-card { height: 337px; overflow: hidden; }
 .guide-chart-card canvas, .guide-delta-card canvas { display: block; width: 100%; height: calc(100% - 20px); }
 .guide-delta-card { height: 172px; margin-top: 9px; }
 .guide-overview-fields { display: grid; grid-template-columns: 1fr 1fr 1.05fr 1.7fr; gap: 8px; }
@@ -166,11 +180,17 @@ details p { margin: 7px 0 0; }
 .guide-overview-actions button, .guide-report-actions button { padding: 8px 10px; font-size: 10px; }
 .guide-report-actions { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
 .guide-report-actions > span { display: flex; gap: 7px; }
-.guide-report-table { display: grid; grid-template-columns: 1fr 1.1fr 2.4fr 1fr; min-height: 420px; border: 1px solid #ced8e3; background: #fff; cursor: pointer; }
+.guide-report-table { display: grid; grid-template-columns: .75fr .9fr .75fr 2.15fr 1.75fr; min-height: 420px; border: 1px solid #ced8e3; background: #fff; }
 .guide-report-table > div { padding: 16px; border-right: 1px solid #d8e0e8; }
 .guide-report-table > div:last-child { border-right: 0; }
 .guide-report-table span { display: block; margin-bottom: 14px; color: #718094; font-size: 10px; }
 .guide-report-table strong, .guide-report-table p { font-size: 12px; line-height: 2; }
+.guide-report-yield strong { color: #d92727; }
+.guide-report-visuals { display: grid; grid-template-rows: 1.15fr .72fr auto; gap: 9px; cursor: pointer; }
+.guide-report-visuals > i, .guide-report-visuals > span i { position: relative; display: block; border: 1px solid #dce4ed; border-radius: 4px; background: linear-gradient(180deg,#f9fbfd,#edf3fb); }
+.guide-report-visuals > i:after, .guide-report-visuals > span i:after { content: ""; position: absolute; inset: 48% 9% auto; height: 2px; background: var(--blue); transform: skewY(-5deg); }
+.guide-report-visuals > span { display: grid; grid-template-columns: repeat(4,1fr); gap: 5px; margin: 0; }
+.guide-report-visuals small { color: #718094; font-size: 8px; line-height: 1.45; }
 .guide-detail { min-width: 0; padding: 30px 26px; border-radius: 0 13px 13px 0; background: var(--night); color: #fff; }
 .guide-detail-head { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 42px; }
 .guide-detail-head span { color: #8dabff; font-size: 11px; font-weight: 700; }
@@ -229,11 +249,14 @@ details p { margin: 7px 0 0; }
 .install-notes p { color: #69778a; font-size: 12px; line-height: 1.75; }
 .install-notes code { display: block; margin-top: 8px; overflow-wrap: anywhere; color: #314158; font-family: "Cascadia Mono", Consolas, monospace; font-size: 9px; }
 .release { padding-bottom: 74px; }
+.release-list { border-bottom: 1px solid var(--line); }
 .release article { display: grid; grid-template-columns: 135px 1fr 90px; gap: 20px; align-items: center; padding: 25px 0; border-top: 1px solid var(--line); }
+.release article.current { padding-inline: 18px; background: #f0f5ff; }
 .release time, .release article p { color: #6e7c8f; font-size: 12px; }
 .release h3 { margin-bottom: 5px; font-size: 17px; }
 .release p { margin-bottom: 0; }
 .release article > span { color: var(--blue); font-size: 12px; font-weight: 700; text-align: right; }
+.changelog-link { display: inline-block; margin-top: 22px; color: var(--blue); font-size: 12px; font-weight: 700; text-underline-offset: 4px; }
 footer { min-height: 90px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); color: #778496; font-size: 11px; }
 .disabled { pointer-events: none; opacity: .55; }
 
@@ -293,7 +316,7 @@ footer { min-height: 90px; display: flex; align-items: center; justify-content: 
   .result-cards { gap: 6px; margin: 10px 0; }
   .result-cards strong { font-size: 19px; }
   .report-sheet { grid-template-columns: 1fr 1fr; }
-  .report-analysis { grid-column: span 2; }
+  .report-visuals, .report-analysis { grid-column: span 2; }
   .workflow-grid { grid-template-columns: 1fr; }
   .workflow-grid article, .workflow-grid article + article { padding: 20px 0; border-right: 0; border-top: 1px solid #e1e6ec; }
   .workflow-grid article:first-child { border-top: 0; }
@@ -324,7 +347,7 @@ footer { min-height: 90px; display: flex; align-items: center; justify-content: 
   .guide-yield-cards button { min-height: 118px; }
   .guide-yield-cards strong { margin-top: 12px; }
   .guide-report-table { grid-template-columns: 1fr 1fr; }
-  .guide-report-table .wide { grid-column: span 2; }
+  .guide-report-table .guide-report-visuals, .guide-report-table .wide { grid-column: span 2; }
   .guide-report-table > div:nth-child(2) { border-right: 0; }
   .guide-report-table > div:nth-child(n+3) { border-top: 1px solid #d8e0e8; }
   .guide-detail { padding: 25px 20px; scroll-margin-top: 14px; }
