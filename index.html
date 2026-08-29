@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="OP Analysis 是面向 Windows 的离线测试数据与产出分析工具。">
+  <meta name="description" content="OP Analysis 是面向 Windows 的离线光学测试、EXP匹配、产出分析与报告工具。">
   <meta property="og:title" content="OP Analysis">
   <meta property="og:description" content="离线测试数据与产出分析">
   <meta property="og:image" content="https://reyp.us/assets/og.png">
@@ -31,16 +31,16 @@
       </div>
 
       <section class="demo-shell hero-demo" aria-label="OP Analysis 虚构操作演示">
-        <div class="demo-window"><span></span><span></span><span></span><small>OP Analysis · 工程分析工作台</small></div>
+        <div class="demo-window"><span></span><span></span><span></span><small>OP Analysis · v0.3.0-beta.6 · 工程分析工作台</small></div>
         <div class="demo-appbar"><b>OP Analysis</b><div class="demo-tabs" role="tablist" aria-label="演示标签"><button id="demo-tab-data" class="active" data-demo-tab="data" role="tab" aria-selected="true" aria-controls="demo-panel-data">测试数据</button><button id="demo-tab-overview" data-demo-tab="overview" role="tab" aria-selected="false" aria-controls="demo-panel-overview">炉次概览</button><button id="demo-tab-report" data-demo-tab="report" role="tab" aria-selected="false" aria-controls="demo-panel-report">分析报告</button></div></div>
         <div class="demo-toolbar"><b class="import-chip">导入炉次文件夹</b><span>选择文件</span><span>当前规格：演示规格</span></div>
         <p class="demo-disclaimer">虚构演示数据，不代表实际预测结果或生产结论</p>
 
         <section id="demo-panel-data" class="demo-panel active" data-demo-panel="data" role="tabpanel" aria-labelledby="demo-tab-data">
           <div class="data-layout">
-            <aside class="file-list"><b>点位文件　EXP</b><button class="selected" data-demo-file="01-02 EXP">01-02 EXP</button><button data-demo-file="01-05 EXP">01-05 EXP</button><button data-demo-file="01-08 EXP">01-08 EXP</button><button data-demo-file="全部数据">全部数据</button></aside>
+            <aside class="file-list"><b>点位文件　EXP</b><button class="selected" data-demo-file="匹配度">匹配度</button><button data-demo-file="01-02 EXP">01-02 EXP</button><button data-demo-file="01-05 EXP">01-05 EXP</button><button data-demo-file="01-08 EXP">01-08 EXP</button></aside>
             <div class="metric-table"><div class="panel-title"><b>测试指标</b><span id="activeDemoFile">01-02 EXP · 9 / 9 合格</span></div><table><thead><tr><th>指标</th><th>结果</th><th>规格</th></tr></thead><tbody id="demoMetrics"></tbody></table></div>
-            <div class="wave-card"><div class="panel-title"><b>光谱波形</b><span>1258-1270 nm</span></div><canvas id="waveCanvas" aria-label="虚构光谱波形"></canvas></div>
+            <div class="wave-card"><div class="panel-title"><b>光谱波形</b><span class="wave-tools"><i>0～−1 dB</i><i>Zoom</i></span></div><canvas id="waveCanvas" aria-label="虚构光谱波形"></canvas></div>
           </div>
           <div class="delta-card"><div class="panel-title"><b>Delta CW</b><span>波长面积合格率 88.4%</span></div><canvas id="deltaCanvas" aria-label="虚构 Delta CW 曲线"></canvas></div>
         </section>
@@ -54,7 +54,7 @@
 
         <section id="demo-panel-report" class="demo-panel" data-demo-panel="report" role="tabpanel" aria-labelledby="demo-tab-report" hidden>
           <div class="report-actions"><b>分析报告预览</b><button id="copyDemoReport" type="button">复制报告</button></div>
-          <div class="report-sheet"><div><span>日期 / 产品</span><strong>2026-08-24<br>演示产品</strong></div><div><span>炉号 / 规格</span><strong>SAMPLE-A<br>演示规格</strong></div><div class="report-analysis"><span>分析结果</span><p>①外观：30-15，占比 94%<br>②均匀性：合格率 88.4%<br>③指标：内圈、监控点、外圈数据已汇总</p></div><div><span>预估产出</span><strong>20,730<br>（19 pcs）</strong></div></div>
+          <div class="report-sheet"><div><span>日期 / 产品</span><strong>2026-08-30<br>演示产品</strong></div><div><span>炉号 / PN</span><strong>DEMO-2601<br>演示规格</strong></div><div class="report-yield"><span>预估产出 / 薄片</span><strong>20,730<br>19 pcs</strong></div><div class="report-visuals" aria-label="虚构 Delta CW 和四张指标截图"><i></i><span><i></i><i></i><i></i><i></i></span></div><div class="report-analysis"><span>分析和改善措施</span><p>①外观：30-15，占比 94%<br>②均匀性：合格率 88.4%<br>③指标：内圈、监控点、外圈数据已汇总</p></div></div>
           <p id="copyStatus" class="copy-status" aria-live="polite"></p>
         </section>
       </section>
@@ -73,19 +73,20 @@
     <section id="guide" class="client-guide">
       <div class="shell">
         <div class="guide-heading">
-          <div><h2>客户端使用说明</h2><p>点击左侧复刻界面的按钮或数据区域，右侧会说明它的作用、使用时机、操作方法和注意事项。</p></div>
-          <form class="guide-search" id="guideSearch" role="search"><label><span class="sr-only">搜索功能</span><input id="guideSearchInput" type="search" placeholder="搜索：导入、Delta CW、报告"></label><button type="submit">搜索</button></form>
+          <div><h2>客户端使用说明</h2><p>界面按真实 Windows 客户端重建，所有炉号、指标和产出均为虚构数据。点击按钮、表格或曲线，可查看作用、操作方法和判断边界。</p></div>
+          <form class="guide-search" id="guideSearch" role="search"><label><span class="sr-only">搜索功能</span><input id="guideSearchInput" type="search" placeholder="搜索：匹配度、Zoom、复制报告"></label><button type="submit">搜索</button></form>
         </div>
 
         <div class="guide-workbench">
           <div class="guide-client" aria-label="OP Analysis 虚构客户端操作演示">
-            <div class="guide-windowbar"><span class="brand-mark" aria-hidden="true"></span><strong>OP Analysis</strong><small>虚构演示界面，不处理真实文件</small></div>
+            <div class="guide-windowbar"><span class="brand-mark" aria-hidden="true"></span><strong>OP Analysis</strong><small>v0.3.0-beta.6 · 虚构演示界面</small></div>
             <div class="guide-toolbar" aria-label="导入与规格操作">
               <button class="guide-primary" type="button" data-guide-feature="import-folder">导入炉次文件夹</button>
               <button type="button" data-guide-feature="choose-files">选择文件</button>
               <button type="button" data-guide-feature="current-spec">当前规格：演示规格</button>
               <button type="button" data-guide-feature="spec-manager">规格管理</button>
               <button type="button" data-guide-feature="clear">清空</button>
+              <button type="button" data-guide-feature="check-update">检查更新</button>
             </div>
             <div class="guide-tabs" role="tablist" aria-label="客户端页面">
               <button class="active" id="guide-tab-data" type="button" role="tab" aria-selected="true" aria-controls="guide-screen-data" data-guide-screen="data" data-guide-feature="tab-data">测试数据</button>
@@ -97,19 +98,19 @@
               <div class="guide-data-grid">
                 <aside class="guide-file-panel">
                   <div><strong>点位文件</strong><span><button class="active" type="button" data-guide-feature="exp-filter">EXP</button><button type="button" data-guide-feature="all-filter">全部</button></span></div>
-                  <button class="selected" type="button" data-guide-feature="point-file">01-02 EXP</button><button type="button" data-guide-feature="point-file">01-05 EXP</button><button type="button" data-guide-feature="point-file">01-08 EXP</button>
+                  <button class="selected" type="button" data-guide-feature="matching">匹配度</button><button type="button" data-guide-feature="point-file">01-02 EXP</button><button type="button" data-guide-feature="point-file">01-05 EXP</button><button type="button" data-guide-feature="point-file">01-08 EXP</button>
                 </aside>
                 <div class="guide-metric-panel" tabindex="0" role="button" data-guide-feature="metrics-table">
                   <div class="guide-panel-title"><strong>测试指标</strong><span>9 / 9 合格</span></div>
                   <table><thead><tr><th>指标</th><th>结果</th><th>规格</th></tr></thead><tbody><tr><td>Delta CW</td><td>-0.48</td><td>-1.50~0.20</td></tr><tr><td>BW@0.3dB</td><td>4.82</td><td>≥4.60</td></tr><tr><td>Ripple</td><td>0.11</td><td>≤0.14</td></tr><tr><td>Max IL</td><td>0.52</td><td>≤0.80</td></tr><tr><td>ISO Left</td><td>31.2</td><td>≥28.0</td></tr><tr><td>ISO Right</td><td>30.8</td><td>≥28.0</td></tr><tr><td>Center WL</td><td>演示</td><td>演示</td></tr><tr><td>Passband</td><td>通过</td><td>目标</td></tr><tr><td>Point Result</td><td>PASS</td><td>PASS</td></tr></tbody></table>
                 </div>
-                <figure class="guide-chart-card" tabindex="0" role="button" data-guide-feature="spectrum"><figcaption><strong>光谱波形</strong><span>1258-1270 nm</span></figcaption><canvas id="guideWaveCanvas" aria-label="虚构光谱波形"></canvas></figure>
+                <figure class="guide-chart-card"><figcaption><strong>光谱波形</strong><span class="guide-wave-tools"><button class="active" type="button" data-guide-feature="one-db-mode">0～−1 dB</button><button type="button" data-guide-feature="zoom-mode">Zoom</button></span></figcaption><canvas id="guideWaveCanvas" tabindex="0" role="button" data-guide-feature="spectrum" aria-label="查看虚构光谱波形说明"></canvas></figure>
               </div>
               <figure class="guide-delta-card" tabindex="0" role="button" data-guide-feature="delta-cw"><figcaption><strong>Delta CW</strong><span>波长面积合格率 88.4%</span></figcaption><canvas id="guideDeltaCanvas" aria-label="虚构 Delta CW 曲线"></canvas></figure>
             </section>
 
             <section class="guide-screen" id="guide-screen-overview" role="tabpanel" aria-labelledby="guide-tab-overview" data-guide-panel="overview" hidden>
-              <div class="guide-overview-fields"><button type="button" data-guide-feature="lot-id"><span>炉号</span><strong>DEMO-001</strong></button><button type="button" data-guide-feature="current-spec"><span>产品系列 / 规格</span><strong>演示规格</strong></button><button type="button" data-guide-feature="slice-count"><span>薄片数量</span><strong>19（自动识别）</strong></button><button type="button" data-guide-feature="appearance"><span>外观描述</span><strong>30-15，占比94%</strong></button></div>
+              <div class="guide-overview-fields"><button type="button" data-guide-feature="lot-id"><span>炉号</span><strong>DEMO2601</strong></button><button type="button" data-guide-feature="current-spec"><span>产品系列 / 规格</span><strong>演示规格</strong></button><button type="button" data-guide-feature="slice-count"><span>薄片数量</span><strong>19（自动识别）</strong></button><button type="button" data-guide-feature="appearance"><span>外观描述</span><strong>30-15，占比94%</strong></button></div>
               <div class="guide-risk-row"><button class="guide-risk-badge" type="button" data-guide-feature="high-risk"><span aria-hidden="true"></span>高风险<small>查看解释</small></button></div>
               <div class="guide-yield-cards"><button type="button" data-guide-feature="cut-result"><span>预估划切颗粒数</span><strong>41,280</strong><small>36,900~45,660</small></button><button class="main" type="button" data-guide-feature="test-result"><span>预估测试合格数</span><strong>24,860</strong><small>20,140~28,920</small></button><button type="button" data-guide-feature="ship-result"><span>预估出库数</span><strong>20,730</strong><small>16,800~24,660</small></button></div>
               <div class="guide-rate-row"><span>外观可用率<b>94.0%</b></span><span>波长合格率<b>88.4%</b></span><span>指标合格率<b>100%</b></span></div>
@@ -118,7 +119,7 @@
 
             <section class="guide-screen" id="guide-screen-report" role="tabpanel" aria-labelledby="guide-tab-report" data-guide-panel="report" hidden>
               <div class="guide-report-actions"><strong>分析报告</strong><span><button type="button" data-guide-feature="refresh-report">生成 / 刷新报告</button><button class="guide-primary" type="button" data-guide-feature="copy-report">复制报告</button></span></div>
-              <div class="guide-report-table" tabindex="0" role="button" data-guide-feature="report-table"><div><span>日期 / 产品</span><strong>2026-08-26<br>演示产品</strong></div><div><span>炉号 / 规格</span><strong>DEMO-001<br>演示规格</strong></div><div class="wide"><span>分析结果</span><p>①外观：30-15，占比94%<br>②均匀性：合格率88.4%<br>③指标：内圈、监控点、外圈数据已汇总</p></div><div><span>预估产出</span><strong>20,730<br>19 pcs</strong></div></div>
+              <div class="guide-report-table"><div><span>日期 / 产品</span><strong>2026-08-30<br>演示产品</strong></div><div><span>炉号 / PN</span><strong>DEMO2601<br>演示规格</strong></div><div class="guide-report-yield"><span>预估产出 / 薄片</span><strong>20,730<br>19 pcs</strong></div><div class="guide-report-visuals" tabindex="0" role="button" data-guide-feature="report-images" aria-label="查看报告图片说明"><i></i><span><i></i><i></i><i></i><i></i></span><small>Delta CW · 内圈 · 监控点 · 外圈 · 匹配度</small></div><div class="wide" tabindex="0" role="button" data-guide-feature="report-table"><span>分析和改善措施</span><p>①外观：30-15，占比94%<br>②均匀性：合格率88.4%<br>③指标：三圈数据已汇总</p></div></div>
             </section>
           </div>
 
@@ -153,7 +154,14 @@
       <div class="install-notes"><article><h3>下载安装版</h3><p>推荐 Windows 10 / 11 x64 用户使用。安装包包含离线运行组件，文件较大属于正常情况。</p></article><article><h3>核对文件</h3><p>下载后可使用 SHA-256 核对安装包完整性。<code id="shaValue">发布时提供</code></p></article><article><h3>了解测试版</h3><p>预测结果仅供工程分析参考。关键决策仍需结合实际测试和人工复核。</p></article></div>
     </section>
 
-    <section class="release shell"><div class="section-intro"><h2>版本记录</h2><p>每次更新均以手动下载的方式提供，不采集使用数据，也不进行自动更新。</p></div><article><time>公开 Beta</time><div><h3 id="releaseVersion">0.3.0-beta.3</h3><p>支持8字符炉号，并在规格管理中增加规格系列多选批量删除。</p></div><span id="releaseState">准备中</span></article></section>
+    <section class="release shell"><div class="section-intro"><h2>版本记录</h2><p>从跨端基础、外观口径修复到 EXP 匹配度和 Excel 报告复制，主要变化按版本完整保留。更新仍需手动下载，不采集使用数据。</p></div><div class="release-list">
+      <article class="current"><time>2026-08-30</time><div><h3 id="releaseVersion">0.3.0-beta.6</h3><p>修复 Excel 只粘贴图片的问题；从任意选中单元格开始粘贴一行五列文字和高清合成图。</p></div><span id="releaseState">准备中</span></article>
+      <article><time>2026-08-30</time><div><h3>0.3.0-beta.5</h3><p>建立一行五列报告结构，D 列合并 Delta CW 与四张指标图，统一微软雅黑 10 号。</p></div><span>报告结构</span></article>
+      <article><time>2026-08-29</time><div><h3>0.3.0-beta.4</h3><p>新增 EXP 匹配度、中心对齐三圈波形、Zoom/0～−1 dB 模式、版本标识和检查更新。</p></div><span>测试分析</span></article>
+      <article><time>2026-08-28</time><div><h3>0.3.0-beta.3</h3><p>支持 8 字符炉号；规格系列可多选批量删除，同时保留单条删除。</p></div><span>数据管理</span></article>
+      <article><time>2026-08-28</time><div><h3>0.3.0-beta.2</h3><p>修复外观等级和缺陷百分比归属，按新的外观合格率口径重新验证预测模型。</p></div><span>口径修复</span></article>
+      <article><time>2026-08-27</time><div><h3>0.3.0-beta.1</h3><p>建立 Windows 与 Android 共用的离线解析和预测基础；本页仍仅分发 Windows 版本。</p></div><span>跨端基础</span></article>
+    </div><a class="changelog-link" href="https://github.com/Reyppp/op-analysis-release/blob/main/CHANGELOG.md">查看包括 0.2 系列在内的完整版本记录</a></section>
   </main>
 
   <footer class="shell"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>OP Analysis</a><span>© <span id="year"></span> Reyppp</span><span>离线测试数据与产出分析</span></footer>
