@@ -39,7 +39,7 @@
   fileButtons.forEach(button => button.addEventListener("click", () => {
     fileButtons.forEach(item => item.classList.toggle("selected", item === button));
     activeDemoFile.textContent = button.dataset.demoFile === "匹配度"
-      ? "匹配度 · 内圈 / 监控点 / 外圈"
+      ? "匹配度 · 中心波长对齐 / 0.1 dB 间隔"
       : `${button.dataset.demoFile} · 9 / 9 合格`;
     drawAllCharts();
   }));
@@ -137,7 +137,7 @@
     "exp-filter": ["点位筛选", "EXP 数据", "只显示用于分区判断的 EXP 点位文件。", "核对内圈、监控点、外圈指标和面积约束时使用。", "点击 EXP，再逐个选择左侧点位文件。", "三点与五点测试的分区位置不同，程序会自动识别。", "data"],
     "all-filter": ["点位筛选", "所有数据", "恢复显示当前炉次的全部测试点位。", "需要检查整片分布或查找非 EXP 异常时使用。", "点击全部，再从文件列表选择目标点位。", "普通点位参与整体分析，但不套用 EXP 专家硬约束。", "data"],
     "point-file": ["点位检查", "点位文件", "切换当前表格和曲线对应的测试点位。", "定位某个位置的带宽、Ripple 或波形异常时使用。", "选择一个点位，右侧指标和曲线会同步更新。", "先确认文件命名与片号、点位号对应。", "data"],
-    "matching": ["EXP 对比", "匹配度", "把第一片的内圈、监控点和外圈指标及波形集中到同一视图，并以监控点中心波长对齐曲线。", "需要快速判断三圈形态差异、定位明显更差的指标时使用。", "在 EXP 列表选择第一行“匹配度”；查看三列值@CW、黄色差异提示和中心对齐波形。", "对齐只平移显示坐标，不修改原始波长或指标数据；规格 Fail 仍以红色优先显示。", "data"],
+    "matching": ["EXP 对比", "匹配度", "把第一片的内圈、监控点和外圈指标及波形集中到同一视图；横向以监控点中心波长对齐，纵向按内圈、监控点、外圈每层0.1 dB错层显示。", "需要快速判断三圈形态差异、定位明显更差的指标时使用。", "在 EXP 列表选择第一行“匹配度”；查看三列值@CW、黄色差异提示和中心对齐波形。", "错层后的内圈最高点距纵轴上界0.2 dB。对齐和错层只改变显示坐标，不修改原始波长、IL、指标或规格判断；规格 Fail 仍以红色优先显示。", "data"],
     "metrics-table": ["测试判断", "九项测试指标", "集中显示当前点位的测试值、规格和通过状态。", "判断带宽、Ripple 或隔离度是否超出规格时使用。", "优先查看标红行，再结合光谱波形确认异常形态。", "薄片阶段带宽或 Ripple 不合格通常缺少后续补救空间。", "data"],
     "spectrum": ["测试判断", "光谱波形", "查看当前点位的原始波形形态与带内稳定性。", "表格异常、Ripple 偏大或需要复核曲线形态时使用。", "选择点位后查看曲线，可使用桌面端截图或复制功能留档。", "波形需要与规格目标及同炉其他点位一起比较。", "data"],
     "one-db-mode": ["波形显示", "0～−1 dB", "使用原始 IL 值显示 1 dB 高度窗口，曲线最高点距纵轴上界保持 0.2 dB。", "比较不同点位顶部形态、Ripple 和平台差异时使用。", "点击 0～−1 dB 后再切换点位；当前会话会保持该显示模式。", "该模式只改变视图范围，不修改测试值或规格判断。", "data"],
@@ -238,7 +238,7 @@
 
   const release = window.OP_RELEASE || {};
   document.getElementById("year").textContent = new Date().getFullYear();
-  document.getElementById("releaseVersion").textContent = release.version || "0.3.0-beta.8";
+  document.getElementById("releaseVersion").textContent = release.version || "0.3.0-beta.9";
   if (release.public) {
     ["installerDownload", "installerDownloadSecondary"].forEach(id => {
       const link = document.getElementById(id);
