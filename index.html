@@ -31,7 +31,7 @@
       </div>
 
       <section class="demo-shell hero-demo" aria-label="OP Analysis 虚构操作演示">
-        <div class="demo-window"><span></span><span></span><span></span><small>OP Analysis · v0.3.0-beta.10 · 工程分析工作台</small></div>
+        <div class="demo-window"><span></span><span></span><span></span><small>OP Analysis · v0.3.0-beta.11 · 工程分析工作台</small></div>
         <div class="demo-appbar"><b>OP Analysis</b><div class="demo-tabs" role="tablist" aria-label="演示标签"><button id="demo-tab-data" class="active" data-demo-tab="data" role="tab" aria-selected="true" aria-controls="demo-panel-data">测试数据</button><button id="demo-tab-overview" data-demo-tab="overview" role="tab" aria-selected="false" aria-controls="demo-panel-overview">炉次概览</button><button id="demo-tab-report" data-demo-tab="report" role="tab" aria-selected="false" aria-controls="demo-panel-report">分析报告</button></div></div>
         <div class="demo-toolbar"><b class="import-chip">导入炉次文件夹</b><span>选择文件</span><span>当前规格：演示规格</span></div>
         <p class="demo-disclaimer">虚构演示数据，不代表实际预测结果或生产结论</p>
@@ -48,8 +48,7 @@
         <section id="demo-panel-overview" class="demo-panel" data-demo-panel="overview" role="tabpanel" aria-labelledby="demo-tab-overview" hidden>
           <div class="overview-inputs"><span>炉号<strong>SAMPLE-A</strong></span><span>规格<strong>演示规格</strong></span><span>薄片数量<strong>19（自动识别）</strong></span><span>外观<strong>30-15，占比 94%</strong></span></div>
           <div class="result-cards"><article><span>预估划切颗粒数</span><strong>41,280</strong><small>区间 36,900-45,660</small></article><article class="main-result"><span>预估测试合格数</span><strong>24,860</strong><small>区间 20,140-28,920</small></article><article><span>预估出库数</span><strong>20,730</strong><small>区间 16,800-24,660</small></article></div>
-          <div class="rate-row"><span>外观可用率<b>94.0%</b></span><span>波长合格率<b>88.4%</b></span><span>指标合格率<b>100%</b></span></div>
-          <details><summary>计算详情</summary><p>演示页仅展示信息组织方式，不包含真实计算规则或模型数据。</p></details>
+          <div class="rate-row"><span>外观合格率<b>94.0%</b></span><span>波长合格率<b>88.4%</b></span><span>指标合格率<b>100%</b></span><span>加工风险<b>18.6%</b></span><span>不良面积率<b>21.0%</b></span><span>预计测试良率<b>40.9%</b></span></div>
         </section>
 
         <section id="demo-panel-report" class="demo-panel" data-demo-panel="report" role="tabpanel" aria-labelledby="demo-tab-report" hidden>
@@ -79,7 +78,7 @@
 
         <div class="guide-workbench">
           <div class="guide-client" aria-label="OP Analysis 虚构客户端操作演示">
-            <div class="guide-windowbar"><span class="brand-mark" aria-hidden="true"></span><strong>OP Analysis</strong><small>v0.3.0-beta.10 · 虚构演示界面</small></div>
+            <div class="guide-windowbar"><span class="brand-mark" aria-hidden="true"></span><strong>OP Analysis</strong><small>v0.3.0-beta.11 · 虚构演示界面</small></div>
             <div class="guide-toolbar" aria-label="导入与规格操作">
               <button class="guide-primary" type="button" data-guide-feature="import-folder">导入炉次文件夹</button>
               <button type="button" data-guide-feature="choose-files">选择文件</button>
@@ -113,8 +112,8 @@
               <div class="guide-overview-fields"><button type="button" data-guide-feature="lot-id"><span>炉号</span><strong>DEMO2601</strong></button><button type="button" data-guide-feature="current-spec"><span>产品系列 / 规格</span><strong>演示规格</strong></button><button type="button" data-guide-feature="slice-count"><span>薄片数量</span><strong>19（自动识别）</strong></button><button type="button" data-guide-feature="appearance"><span>外观描述</span><strong>30-15，占比94%</strong></button></div>
               <div class="guide-risk-row"><button class="guide-risk-badge" type="button" data-guide-feature="high-risk"><span aria-hidden="true"></span>高风险<small>查看解释</small></button></div>
               <div class="guide-yield-cards"><button type="button" data-guide-feature="cut-result"><span>预估划切颗粒数</span><strong>41,280</strong><small>36,900~45,660</small></button><button class="main" type="button" data-guide-feature="test-result"><span>预估测试合格数</span><strong>24,860</strong><small>20,140~28,920</small></button><button type="button" data-guide-feature="ship-result"><span>预估出库数</span><strong>20,730</strong><small>16,800~24,660</small></button></div>
-              <div class="guide-rate-row"><span>外观可用率<b>94.0%</b></span><span>波长合格率<b>88.4%</b></span><span>指标合格率<b>100%</b></span></div>
-              <div class="guide-overview-actions"><button type="button" data-guide-feature="output-report">输出分析报告</button><button type="button" data-guide-feature="restore-default">恢复默认</button><button type="button" data-guide-feature="calculation-detail">计算详情</button><button type="button" data-guide-feature="algorithm-model">算法模型</button></div>
+              <div class="guide-rate-row"><span>外观合格率<b>94.0%</b></span><span>波长合格率<b>88.4%</b></span><span>指标合格率<b>100%</b></span><span>加工风险<b>18.6%</b></span><span>不良面积率<b>21.0%</b></span><span>预计测试良率<b>40.9%</b></span></div>
+              <div class="guide-overview-actions"><button type="button" data-guide-feature="output-report">输出分析报告</button><button type="button" data-guide-feature="restore-default">恢复默认</button><button type="button" data-guide-feature="algorithm-model">算法模型</button></div>
             </section>
 
             <section class="guide-screen" id="guide-screen-report" role="tabpanel" aria-labelledby="guide-tab-report" data-guide-panel="report" hidden>
@@ -154,18 +153,10 @@
       <div class="install-notes"><article><h3>下载安装版</h3><p>推荐 Windows 10 / 11 x64 用户使用。安装包包含离线运行组件，文件较大属于正常情况。</p></article><article><h3>核对文件</h3><p>下载后可使用 SHA-256 核对安装包完整性。<code id="shaValue">发布时提供</code></p></article><article><h3>了解测试版</h3><p>预测结果仅供工程分析参考。关键决策仍需结合实际测试和人工复核。</p></article></div>
     </section>
 
-    <section class="release shell"><div class="section-intro"><h2>版本记录</h2><p>从跨端基础、外观口径修复到 EXP 匹配度和 Excel 报告复制，主要变化按版本完整保留。更新仍需手动下载，不采集使用数据。</p></div><div class="release-list">
-      <article class="current"><time>2026-08-30</time><div><h3 id="releaseVersion">0.3.0-beta.10</h3><p>修复报告图例重叠并加宽四张详情图；匹配度支持直接截图。</p></div><span id="releaseState">准备中</span></article>
-      <article><time>2026-08-30</time><div><h3>0.3.0-beta.9</h3><p>匹配度三圈波形按0.1 dB错层显示，并统一页面与报告的纵轴上界。</p></div><span>波形错层</span></article>
-      <article><time>2026-08-30</time><div><h3>0.3.0-beta.8</h3><p>修复外观百分比归属；未知原文片段完整保留并按2%默认影响供人工调整。</p></div><span>外观识别</span></article>
-      <article><time>2026-08-30</time><div><h3>0.3.0-beta.7</h3><p>报告光谱截图与测试页显示模式保持一致；Excel 高清合成图提升至 4 倍像素密度、480 DPI。</p></div><span>报告一致</span></article>
-      <article><time>2026-08-30</time><div><h3>0.3.0-beta.6</h3><p>修复 Excel 只粘贴图片的问题；从任意选中单元格开始粘贴一行五列文字和高清合成图。</p></div><span>复制兼容</span></article>
-      <article><time>2026-08-30</time><div><h3>0.3.0-beta.5</h3><p>建立一行五列报告结构，D 列合并 Delta CW 与四张指标图，统一微软雅黑 10 号。</p></div><span>报告结构</span></article>
-      <article><time>2026-08-29</time><div><h3>0.3.0-beta.4</h3><p>新增 EXP 匹配度、中心对齐三圈波形、Zoom/0～−1 dB 模式、版本标识和检查更新。</p></div><span>测试分析</span></article>
-      <article><time>2026-08-28</time><div><h3>0.3.0-beta.3</h3><p>支持 8 字符炉号；规格系列可多选批量删除，同时保留单条删除。</p></div><span>数据管理</span></article>
-      <article><time>2026-08-28</time><div><h3>0.3.0-beta.2</h3><p>修复外观等级和缺陷百分比归属，按新的外观合格率口径重新验证预测模型。</p></div><span>口径修复</span></article>
-      <article><time>2026-08-27</time><div><h3>0.3.0-beta.1</h3><p>建立 Windows 与 Android 共用的离线解析和预测基础；本页仍仅分发 Windows 版本。</p></div><span>跨端基础</span></article>
-    </div><a class="changelog-link" href="https://github.com/Reyppp/op-analysis-release/blob/main/CHANGELOG.md">查看包括 0.2 系列在内的完整版本记录</a></section>
+    <section class="release shell"><div class="section-intro"><h2>版本记录</h2><p>官网只展示当前版本和上一个版本。完整历史继续保存在 GitHub Releases 与 CHANGELOG 中；更新仍需手动下载，不采集使用数据。</p></div><div class="release-list">
+      <article class="current"><time>2026-08-31</time><div><h3 id="releaseVersion">0.3.0-beta.11</h3><p>炉次概览移除计算详情，以两行六项核心指标集中呈现当前炉次状态。</p></div><span id="releaseState">准备中</span></article>
+      <article><time>2026-08-30</time><div><h3>0.3.0-beta.10</h3><p>修复报告图例重叠并加宽四张详情图；匹配度支持直接截图。</p></div><span>报告优化</span></article>
+    </div><a class="changelog-link" href="https://github.com/Reyppp/op-analysis-release/blob/main/CHANGELOG.md">查看完整版本记录</a></section>
   </main>
 
   <footer class="shell"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>OP Analysis</a><span>© <span id="year"></span> Reyppp</span><span>离线测试数据与产出分析</span></footer>
