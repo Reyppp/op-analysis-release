@@ -4,7 +4,7 @@ OP Analysis 是面向 Windows 的离线光学测试与产出分析工具，用�
 
 [访问官网](https://reyp.us) · [下载最新测试版](https://github.com/Reyppp/op-analysis-release/releases) · [提交问题](https://github.com/Reyppp/op-analysis-release/issues/new/choose)
 
-当前公开测试版：`0.3.0-beta.10`（Windows 10/11 x64）。
+当前公开测试版：`0.3.0-beta.11`（Windows 10/11 x64）。
 
 > 本仓库只包含官方网站、虚构交互演示和公开发行资料，不包含桌面端源码、模型参数、训练或回测数据、真实炉次及生产文件。
 

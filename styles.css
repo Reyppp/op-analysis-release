@@ -86,8 +86,6 @@ td:nth-child(2) { color: #16865e; font-weight: 650; }
 .result-cards .main-result { border-color: #9bb8ff; background: var(--blue-soft); }
 .result-cards .main-result strong { color: var(--blue); }
 .rate-row { grid-template-columns: repeat(3, 1fr); }
-details { margin-top: 12px; padding: 9px; border-top: 1px solid #dfe5ec; color: #68778a; font-size: 9px; }
-details p { margin: 7px 0 0; }
 .report-actions { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; font-size: 10px; }
 .report-actions button { padding: 6px 9px; border: 1px solid #cad4df; border-radius: 5px; background: #fff; color: #334154; font-size: 9px; cursor: pointer; }
 .report-sheet { display: grid; grid-template-columns: .75fr .9fr .75fr 2.5fr 1.9fr; min-height: 221px; border: 1px solid #cfd8e2; background: #fff; color: #243143; }
